@@ -1,0 +1,550 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap");
+
+/* ____________________________________ */
+/* BRAND COLORS */
+/* ____________________________________ */
+:root {
+	--primary: #369886;
+	--secondary: #83cfc6;
+	--highlight: #bdf0ea;
+	--light: #fcfcfc;
+	--dark: #617481;
+	--dark_transparent: rgba(97, 116, 129, 0);
+	--accent: #f5ab57;
+}
+
+/* ____________________________________ */
+/* ASSET DEFAULTS */
+/* ____________________________________ */
+
+* {
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	font-family: "Montserrat", sans-serif;
+}
+
+html,
+body {
+	overflow-x: hidden;
+	max-width: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+h1 {
+	color: var(--primary);
+	font-size: 2em;
+}
+
+h2 {
+	color: var(--light);
+	font-size: 2.2em;
+	text-shadow: 0px 3px 1px var(--primary);
+}
+
+h3 {
+	color: var(--secondary);
+	font-size: 1.7em;
+}
+
+h4 {
+	color: var(--highlight);
+	font-weight: 600;
+}
+
+li {
+	list-style: none;
+	padding: 0;
+}
+
+main {
+	background: var(--light);
+	position: relative;
+	min-height: 100vh;
+	/* padding-bottom: 50px; */
+}
+
+/* ____________________________________ */
+/* NAVBAR */
+/* ____________________________________ */
+#navHead {
+	z-index: 99;
+	position: fixed;
+	width: 100%;
+}
+#navbar {
+	background: var(--primary);
+	top: 0;
+	/* width: 100%; */
+	display: flex;
+	padding: 20px;
+	justify-content: space-between;
+	z-index: 99;
+}
+
+#logo {
+	color: var(--light);
+	font-size: 24px;
+	font-weight: 600;
+}
+
+/* ____________________________________ */
+/* HAMBURGER MENU */
+/* ____________________________________ */
+#menuBtn {
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 25px;
+	height: 25px;
+	cursor: pointer;
+	transition: all 0.5s ease-in-out;
+}
+.line {
+	position: relative;
+	width: 100%;
+	height: 5px;
+	background: white;
+	border-radius: 20px;
+	transition: all 0.5s ease-in-out;
+}
+
+.line::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 100%;
+	height: 5px;
+	background: white;
+	border-radius: 20px;
+	transition: all 0.5s ease-in-out;
+}
+
+.line::after {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 5px;
+	background: white;
+	border-radius: 20px;
+	transition: all 0.5s ease-in-out;
+}
+
+.line::before {
+	transform: translateY(-10px);
+}
+
+.line::after {
+	transform: translateY(10px) translateX(-12.5px);
+}
+
+#menuBtn.open .line {
+	transform: rotate(45deg);
+	transition: all 0.5s ease-in-out;
+}
+#menuBtn.open .line::before {
+	transform: rotate(-90deg) translate(5px, -5px);
+	width: 15px;
+	border-radius: 20px;
+}
+#menuBtn.open .line::after {
+	transform: rotate(-90deg) translate(-5px, -8px);
+	width: 15px;
+	border-radius: 20px;
+}
+
+/* ____________________________________ */
+/* NAV MENU OPTIONS */
+/* ____________________________________ */
+#navMenuExpanded {
+	display: none;
+}
+#navMenu {
+	position: absolute;
+	right: -150px;
+	display: none;
+	-webkit-animation: slide 0.5s reverse;
+	animation: slide 0.5s reverse;
+	transition: display 2s ease-in-out;
+}
+#navMenu.open {
+	display: flex;
+	background: var(--dark);
+	/* float: right; */
+	padding: 20px 0;
+	flex-direction: column;
+	justify-content: space-around;
+	border-radius: 0 0 0 5px;
+	-webkit-animation: slide 0.5s forwards;
+	animation: slide 0.5s forwards;
+	/* transition: all 0.5s ease-in-out; */
+}
+
+@-webkit-keyframes slide {
+	100% {
+		right: 0;
+	}
+}
+
+@keyframes slide {
+	100% {
+		right: 0;
+	}
+}
+
+.navMenuOption {
+	width: 100%;
+	text-align: right;
+	margin: 5px auto;
+}
+
+.navMenuOption:hover {
+	color: var(--primary);
+	background: var(--highlight);
+}
+
+.navMenuOption a {
+	margin-right: 20px;
+	padding-left: 20px;
+	font-size: 22px;
+	color: white;
+	width: 100%;
+}
+.navMenuOption:hover a {
+	color: var(--primary);
+}
+
+/* ____________________________________ */
+/* HEADER MAP IMAGE */
+/* ____________________________________ */
+#headerImage {
+	display: block;
+	width: 100%;
+	height: 250px;
+}
+#mapImg {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+/* #mapImg {
+	display: block;
+	width: 100%;
+	background-size: cover;
+} */
+
+#mapFrame {
+	display: none;
+	width: 100%;
+}
+
+/* ____________________________________ */
+/* PRIMARY CONTENT SECTION */
+/* ____________________________________ */
+#infoSection {
+	width: 100%;
+}
+
+#mapCallToAction {
+	margin: 20px auto;
+}
+
+.infoText {
+	color: var(--dark);
+	font-size: 20px;
+	line-height: 1.5em;
+	padding: 0 20px;
+}
+
+/* ____________________________________ */
+/* VECTOR SHAPE + HEADER */
+/* ____________________________________ */
+#featureHeader {
+	padding: 0;
+	position: relative;
+	height: 250px;
+	width: 100%;
+}
+#featureHeader .sectionHeader {
+	width: calc(100% - 40px);
+	position: absolute;
+	padding: 0 20px;
+	bottom: 0;
+	z-index: 9;
+}
+#svgWave1,
+#svgWave2 {
+	position: absolute;
+	left: 0;
+	width: 100%;
+}
+
+/* ____________________________________ */
+/* ACTIVE SECTION ASSETS + INFO */
+/* ____________________________________ */
+#featureInfo {
+	margin-top: 20px;
+}
+#featureSection {
+	padding-bottom: 50px;
+}
+#videos {
+	scroll-margin-top: 350px;
+	padding-bottom: 50px;
+}
+#resources {
+	scroll-margin-top: 350px;
+	padding-bottom: 50px;
+}
+
+/* ____________________________________ */
+/* VIDEO SECTION ASSETS */
+/* ____________________________________ */
+.videoSet {
+	padding: 0 20px;
+	display: flex;
+	flex-direction: column;
+}
+
+#videoNav {
+	background: var(--primary);
+	width: 100%;
+	height: 45px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+/* ____________________________________ */
+/* VIDEO CATEGORY SCROLL */
+/* ____________________________________ */
+#videoNav h3 {
+	color: white;
+}
+#prevArrow {
+	margin-left: 20px;
+	width: 0;
+	height: 0;
+	border-top: 15px solid transparent;
+	border-right: 25px solid white;
+	border-bottom: 15px solid transparent;
+}
+#prevArrow:hover {
+	cursor: pointer;
+	margin-left: 20px;
+	width: 0;
+	height: 0;
+	border-top: 15px solid transparent;
+	border-right: 25px solid var(--highlight);
+	border-bottom: 15px solid transparent;
+}
+#prevArrow:active {
+	border-right: 25px solid white;
+}
+#nextArrow {
+	margin-right: 20px;
+	width: 0;
+	height: 0;
+	border-top: 15px solid transparent;
+	border-left: 25px solid white;
+	border-bottom: 15px solid transparent;
+}
+#nextArrow:hover {
+	cursor: pointer;
+	margin-right: 20px;
+	width: 0;
+	height: 0;
+	border-top: 15px solid transparent;
+	border-left: 25px solid var(--highlight);
+	border-bottom: 15px solid transparent;
+}
+#nextArrow:active {
+	border-left: 25px solid white;
+}
+
+#videoList {
+	margin-top: 10px;
+}
+.videoSet li {
+	display: flex;
+	justify-content: center;
+}
+
+.videoThumbnail {
+	border: 2px solid var(--dark);
+	box-sizing: border-box;
+	background: black;
+	width: 100%;
+	max-width: 420px;
+	height: 250px;
+	position: relative;
+	border-radius: 5px;
+	margin-bottom: 10px;
+}
+.videoTitle,
+.videoTitleFull {
+	color: white;
+	position: absolute;
+	bottom: 20px;
+	padding: 10px;
+}
+.videoTitle {
+	background-image: linear-gradient(
+		to right,
+		var(--dark),
+		var(--dark),
+		var(--dark_transparent)
+	);
+}
+.videoTitleFull {
+	background: var(--dark);
+	width: calc(100% - 20px);
+	text-align: left;
+}
+
+/* ____________________________________ */
+/* RESOURCES SECTION ASSETS */
+/* ____________________________________ */
+#divider {
+	display: block;
+}
+
+#resourcesList {
+	padding: 0 20px;
+}
+
+.resourcesSublist li {
+	margin: 10px auto;
+}
+.resourcesSublist a {
+	text-decoration: underline;
+	font-size: 22px;
+	color: var(--dark);
+}
+
+/* ____________________________________ */
+/* FOOTER SECTION */
+/* ____________________________________ */
+
+#footer {
+	background: var(--primary);
+	color: var(--light);
+	padding: 10px 0;
+	position: absolute;
+	width: 100%;
+	bottom: 0;
+}
+#footer p {
+	width: 100%;
+}
+#footer p a {
+	color: var(--accent);
+	font-weight: 600;
+}
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-width: 768px) {
+	#menuBtn {
+		display: none;
+	}
+	#navMenu {
+		display: none;
+	}
+	#navMenuExpanded {
+		display: flex;
+	}
+	#navMenuExpanded a {
+		padding: 5px 20px;
+		font-size: 22px;
+		color: white;
+		width: 100%;
+	}
+	#navMenuExpanded a:hover {
+		background: var(--highlight);
+		color: var(--primary);
+		border-radius: 50px;
+	}
+
+	#featureHeader .sectionHeader {
+		padding: 0;
+		width: 100%;
+	}
+
+	.videoSet {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-column-gap: 10px;
+		grid-row-gap: 10px;
+	}
+
+	.videoThumbnail {
+		margin: 0;
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	h1 {
+		font-size: 1.5em;
+	}
+	h2 {
+		font-size: 1.7em;
+	}
+	h3 {
+		font-size: 1.2em;
+	}
+	.infoText {
+		font-size: 18px;
+	}
+	#content {
+		display: flex;
+		padding-top: 69px;
+		max-height: calc(100vh - 70px);
+	}
+
+	#headerImage {
+		display: none;
+	}
+
+	#mapImg {
+		display: none;
+	}
+	#mapFrame {
+		display: inline;
+		flex: 3;
+	}
+
+	#featureSection {
+		padding-bottom: 0;
+	}
+
+	#infoSection {
+		flex: 1;
+		overflow-y: scroll;
+		padding: none;
+		min-width: 20px;
+		/* width: 500px; */
+	}
+	.videoSet {
+		padding: 0 20px;
+		display: flex;
+		flex-direction: column;
+	}
+
+	.resourcesSublist a {
+		font-size: 18px;
+	}
+	#footer {
+		position: relative;
+	}
+}
+/* ____________________________________ */
+/* ABSOLUTE UNIVERSAL STYLES */
+/* ____________________________________ */
+.hidden {
+	display: none;
+}
