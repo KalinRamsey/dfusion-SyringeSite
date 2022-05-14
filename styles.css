@@ -442,8 +442,8 @@ main {
 #footer p {
 	width: 100%;
 }
-#footer p a {
-	color: var(--accent);
+#footer a {
+	color: var(--highlight);
 	font-weight: 600;
 }
 
@@ -516,6 +516,7 @@ main {
 	#mapFrame {
 		display: inline;
 		flex: 3;
+		border: none;
 	}
 
 	#featureSection {
