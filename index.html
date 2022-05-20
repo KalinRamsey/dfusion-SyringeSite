@@ -33,6 +33,7 @@
 					</li>
 				</ul>
 			</div>
+
 			<div id="content">
 				<header id="headerImage">
 					<img
@@ -41,13 +42,62 @@
 						alt="Placeholder map thumbnail"
 					/>
 				</header>
-				<iframe
-					id="mapFrame"
-					src="https://syringemap.firebaseapp.com/"
-					title="Syringe Map live application"
-					scrolling="no"
-					sandbox="allow-scripts allow-popups allow-same-origin"
-				></iframe>
+				<div id="subContent">
+					<div id="modalView" class="hidden">
+						<div id="modalWindow">
+							<div id="modalHeader">
+								<div id="modalHeaderInfo">
+									<h4 id="modalTitle">Modal Title</h4>
+									<h6 id="modalTime">(00:00)</h6>
+								</div>
+								<svg
+									id="modalClose"
+									width="36"
+									height="36"
+									viewBox="0 0 36 36"
+									fill="none"
+									xmlns="http://www.w3.org/2000/svg"
+								>
+									<rect
+										y="31.25"
+										width="44.1941"
+										height="6"
+										rx="3"
+										transform="rotate(-45 0 31.25)"
+										fill="#83CFC6"
+									/>
+									<rect
+										width="44.1941"
+										height="6"
+										rx="3"
+										transform="matrix(-0.707107 -0.707107 -0.707107 0.707107 35.4927 31.25)"
+										fill="#83CFC6"
+									/>
+								</svg>
+							</div>
+							<div id="modalContent">
+								<video id="modalVideo" controls>
+									<source id="modalVideoSrc" src="movie.mp4" type="video/mp4" />
+									Your browser does not support the video tag.
+								</video>
+								<p id="modalInfo">
+									Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae,
+									voluptate dolor itaque illum in labore sequi, nostrum tenetur
+									iure at quidem magnam facilis autem, distinctio voluptatum
+									accusantium minus amet. Dolor!
+								</p>
+							</div>
+						</div>
+					</div>
+					<iframe
+						id="mapFrame"
+						src="https://syringemap.firebaseapp.com/"
+						title="Syringe Map live application"
+						scrolling="no"
+						sandbox="allow-scripts allow-popups allow-same-origin"
+					></iframe>
+				</div>
+
 				<section id="infoSection">
 					<div id="mapCallToAction">
 						<h1>Sites Near You</h1>
@@ -130,81 +180,7 @@
 									<div id="nextArrow"></div>
 								</div>
 								<div id="videoList">
-									<ul id="vidCat_1" class="videoSet">
-										<li>
-											<div class="videoThumbnail">
-												<h4 class="videoTitle">Video Title</h4>
-												<img src="#" alt="Video placeholder image" />
-											</div>
-										</li>
-										<li>
-											<div class="videoThumbnail">
-												<h4 class="videoTitle">
-													Really really long Video Title
-												</h4>
-												<img src="#" alt="Video placeholder image" />
-											</div>
-										</li>
-										<li>
-											<div class="videoThumbnail">
-												<h4 class="videoTitleFull">
-													Video Title All the Way Across the Thumbnail, or On
-													Multiple Lines
-												</h4>
-												<img src="#" alt="Video placeholder image" />
-											</div>
-										</li>
-									</ul>
-									<ul id="vidCat_2" class="videoSet hidden">
-										<li>
-											<div class="videoThumbnail">
-												<h4 class="videoTitleFull">
-													Video Title All the Way Across the Thumbnail, or On
-													Multiple Lines
-												</h4>
-												<img src="#" alt="Video placeholder image" />
-											</div>
-										</li>
-										<li>
-											<div class="videoThumbnail">
-												<h4 class="videoTitle">
-													Really really long Video Title
-												</h4>
-												<img src="#" alt="Video placeholder image" />
-											</div>
-										</li>
-										<li>
-											<div class="videoThumbnail">
-												<h4 class="videoTitle">Video Title</h4>
-												<img src="#" alt="Video placeholder image" />
-											</div>
-										</li>
-									</ul>
-									<ul id="vidCat_3" class="videoSet hidden">
-										<li>
-											<div class="videoThumbnail">
-												<h4 class="videoTitle">
-													Really really long Video Title
-												</h4>
-												<img src="#" alt="Video placeholder image" />
-											</div>
-										</li>
-										<li>
-											<div class="videoThumbnail">
-												<h4 class="videoTitleFull">
-													Video Title All the Way Across the Thumbnail, or On
-													Multiple Lines
-												</h4>
-												<img src="#" alt="Video placeholder image" />
-											</div>
-										</li>
-										<li>
-											<div class="videoThumbnail">
-												<h4 class="videoTitle">Video Title</h4>
-												<img src="#" alt="Video placeholder image" />
-											</div>
-										</li>
-									</ul>
+									<ul class="videoSet"></ul>
 								</div>
 							</section>
 							<section id="resources" class="hidden">
