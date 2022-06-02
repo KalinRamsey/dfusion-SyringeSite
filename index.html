@@ -4,6 +4,7 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/x-icon" href="./favicon.png" />
 		<link rel="stylesheet" href="styles.css" />
 		<title>dfusion - Syringe Site</title>
 	</head>
@@ -16,10 +17,10 @@
 						<div class="line"></div>
 					</div>
 					<ul id="navMenuExpanded">
-						<li class="videoNavBtn">
+						<li class="videoNavBtn wide">
 							<a href="#videos">VIDEOS</a>
 						</li>
-						<li class="resourcesNavBtn">
+						<li class="resourcesNavBtn wide">
 							<a href="#resources">RESOURCES</a>
 						</li>
 					</ul>
@@ -43,8 +44,16 @@
 					/>
 				</header>
 				<div id="subContent">
-					<div id="modalView" class="hidden">
-						<div id="modalWindow">
+					<iframe
+						id="modalMapView"
+						class="hidden"
+						src="https://syringemap.firebaseapp.com/"
+						title="Syringe Map live application"
+						scrolling="no"
+						sandbox="allow-scripts allow-popups allow-same-origin"
+					></iframe>
+					<div id="modalVideoView" class="hidden">
+						<div id="modalWindow" class="hidden">
 							<div id="modalHeader">
 								<div id="modalHeaderInfo">
 									<h4 id="modalTitle">Modal Title</h4>
@@ -80,12 +89,14 @@
 									<source id="modalVideoSrc" src="movie.mp4" type="video/mp4" />
 									Your browser does not support the video tag.
 								</video>
-								<p id="modalInfo">
-									Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae,
-									voluptate dolor itaque illum in labore sequi, nostrum tenetur
-									iure at quidem magnam facilis autem, distinctio voluptatum
-									accusantium minus amet. Dolor!
-								</p>
+								<div id="modalInfo">
+									<p id="modalDesc">
+										Lorem ipsum dolor sit amet consectetur adipisicing elit.
+										Quae, voluptate dolor itaque illum in labore sequi, nostrum
+										tenetur iure at quidem magnam facilis autem, distinctio
+										voluptatum accusantium minus amet. Dolor!
+									</p>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -222,6 +233,6 @@
 				</section>
 			</div>
 		</main>
-		<script src="script.js"></script>
+		<script type="module" src="script.js"></script>
 	</body>
 </html>

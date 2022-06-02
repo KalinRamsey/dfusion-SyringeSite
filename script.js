@@ -1,5 +1,18 @@
 /*
 -----------------------------------------------
+Mini-Map Expansion Methods
+-----------------------------------------------
+*/
+const mapImg = document.querySelector("#mapImg");
+const modalMapView = document.querySelector("#modalMapView");
+
+mapImg.addEventListener("click", () => {
+	modalMapView.classList.toggle("hidden");
+	menuBtn.classList.toggle("open");
+});
+
+/*
+-----------------------------------------------
 Navber functions
 -----------------------------------------------
 */
@@ -7,11 +20,18 @@ Navber functions
 const menuBtn = document.querySelector("#menuBtn");
 const menuNav = document.querySelector("#navMenu");
 
-menuBtn.addEventListener("click", () => {
-	// Toggles hamburger menu appearance
-	menuBtn.classList.toggle("open");
-	menuNav.classList.toggle("open");
-});
+const toggleMenuNav = () => {
+	// if mini-map is active, hide it
+	if (!modalMapView.classList.contains("hidden")) {
+		modalMapView.classList.add("hidden");
+		menuBtn.classList.toggle("open");
+	} else {
+		// Toggles hamburger menu appearance
+		menuBtn.classList.toggle("open");
+		menuNav.classList.toggle("open");
+	}
+};
+menuBtn.addEventListener("click", () => toggleMenuNav());
 
 const videoBtns = document.querySelectorAll(".videoNavBtn");
 const videoSect = document.querySelector("#videos");
@@ -49,11 +69,11 @@ resourcesBtns.forEach((element) => {
 Modal Section Methods
 -----------------------------------------------
 */
-const modalView = document.querySelector("#modalView");
+const modalVideoView = document.querySelector("#modalVideoView");
 const modalCloseBtn = document.querySelector("#modalClose");
 
 modalCloseBtn.addEventListener("click", () => {
-	modalView.classList.toggle("hidden");
+	modalVideoView.classList.toggle("hidden");
 });
 
 /*
@@ -61,7 +81,8 @@ modalCloseBtn.addEventListener("click", () => {
 Video Section Assets
 -----------------------------------------------
 */
-const videoSets = [
+
+const videoData = [
 	{
 		category: "Safe Application",
 		videos: [
@@ -71,8 +92,7 @@ const videoSets = [
 				alt: "Alt text",
 				link: "",
 				time: "00:00",
-				description:
-					"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+				description: "Test short description",
 			},
 			{
 				title: "Safe Application Video #2",
@@ -196,14 +216,14 @@ const populateVideoModal = (title, time, link, description) => {
 	let modalTitle = document.querySelector("#modalTitle");
 	let modalTime = document.querySelector("#modalTime");
 	let modalVideo = document.querySelector("#modalVideoSrc");
-	let modalInfo = document.querySelector("#modalInfo");
+	let modalDesc = document.querySelector("#modalDesc");
 
 	modalTitle.innerHTML = title;
 	modalTime.innerHTML = time;
-	modalInfo.innerHTML = description;
 	modalVideo.src = link;
+	modalDesc.innerHTML = description;
 
-	modalView.classList.remove("hidden");
+	modalVideoView.classList.remove("hidden");
 };
 
 const buildThumbnail = (video) => {
@@ -237,6 +257,8 @@ const buildThumbnail = (video) => {
 const populateVideoList = (videoArr) => {
 	const videoList = document.querySelector(".videoSet");
 
+	videoList.innerHTML = "";
+
 	for (let v of videoArr) {
 		videoList.append(buildThumbnail(v));
 	}
@@ -248,9 +270,10 @@ const nextVidSectBtn = document.querySelector("#nextArrow");
 const prevVidSectBtn = document.querySelector("#prevArrow");
 
 const updateVideoSection = (categoryIndex) => {
-	const currentVideosTitle = videoSets[categoryIndex].category;
-	const currentVideosList = videoSets[categoryIndex].videos;
+	const currentVideosTitle = videoData[categoryIndex].category;
+	const currentVideosList = videoData[categoryIndex].videos;
 	vidSectText.innerHTML = currentVideosTitle;
+
 	populateVideoList(currentVideosList);
 };
 
@@ -259,7 +282,7 @@ updateVideoSection(currentVidSection);
 
 nextVidSectBtn.addEventListener("click", () => {
 	// Update video list to display next category
-	if (currentVidSection === videoSets.length) {
+	if (currentVidSection === videoData.length - 1) {
 		currentVidSection = 0;
 	} else {
 		currentVidSection++;
@@ -269,7 +292,7 @@ nextVidSectBtn.addEventListener("click", () => {
 prevVidSectBtn.addEventListener("click", () => {
 	// Update video list to display prev category
 	if (currentVidSection === 0) {
-		currentVidSection = videoSets.length - 1;
+		currentVidSection = videoData.length - 1;
 	} else {
 		currentVidSection--;
 	}
