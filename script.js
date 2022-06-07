@@ -1,84 +1,33 @@
 /*
------------------------------------------------
-Mini-Map Expansion Methods
------------------------------------------------
-*/
-const mapImg = document.querySelector("#mapImg");
-const modalMapView = document.querySelector("#modalMapView");
+///////////////////////////////////////////////
+            _____ _____ ______ _______ _____ 
+     /\    / ____/ ____|  ____|__   __/ ____|
+    /  \  | (___| (___ | |__     | | | (___  
+   / /\ \  \___ \\___ \|  __|    | |  \___ \ 
+  / ____ \ ____) |___) | |____   | |  ____) |
+ /_/    \_\_____/_____/|______|  |_| |_____/ 
+///////////////////////////////////////////////
+///////////////////////////////////////////////
+- Alter the values here to adjust the information
+	displayed. When adding new data, refer to the
+	templates provided to ensure consistency.
 
-mapImg.addEventListener("click", () => {
-	modalMapView.classList.toggle("hidden");
-	menuBtn.classList.toggle("open");
-});
-
-/*
 -----------------------------------------------
-Navber functions
------------------------------------------------
-*/
-
-const menuBtn = document.querySelector("#menuBtn");
-const menuNav = document.querySelector("#navMenu");
-
-const toggleMenuNav = () => {
-	// if mini-map is active, hide it
-	if (!modalMapView.classList.contains("hidden")) {
-		modalMapView.classList.add("hidden");
-		menuBtn.classList.toggle("open");
-	} else {
-		// Toggles hamburger menu appearance
-		menuBtn.classList.toggle("open");
-		menuNav.classList.toggle("open");
+VIDEO DATA
+	- Template: {
+		category: Label used to classify a group of videos
+		videos: [ A list of videos assigned to a specific category
+			{
+				title: Title of the video,
+				src: Link to the thumbnail image for the video,
+				alt: Brief description of the video - this is not likely to be visible,
+						but is important to include for screen readers and improved accessibility,
+				link: Link to the video file,
+				time: How long the video will last, written in format "HH:MM:SS",
+				description: Full-length description of the video, will be visible in the modal view.
+			}
+		]
 	}
-};
-menuBtn.addEventListener("click", () => toggleMenuNav());
-
-const videoBtns = document.querySelectorAll(".videoNavBtn");
-const videoSect = document.querySelector("#videos");
-const resourcesBtns = document.querySelectorAll(".resourcesNavBtn");
-const resourcesSect = document.querySelector("#resources");
-
-const mainText = document.getElementById("featureMainText");
-const subText = document.getElementById("featureSubText");
-
-videoBtns.forEach((element) => {
-	// Adds click function to mobile & desktop version "Videos" button
-	element.addEventListener("click", () => {
-		videoSect.classList.remove("hidden");
-		resourcesSect.classList.add("hidden");
-		mainText.innerHTML = "Be Smart. Be Safe.";
-		subText.innerHTML =
-			"Watch free videos about safe administration, proper disposal, wound treatment, and more:";
-	});
-});
-
-resourcesBtns.forEach((element) => {
-	// Adds click function to mobile & desktop version "Resources" button
-	element.addEventListener("click", () => {
-		videoSect.classList.add("hidden");
-		resourcesSect.classList.remove("hidden");
-		mainText.innerHTML =
-			'Know the Facts.<span id="divider"></span>Protect Yourself.';
-		subText.innerHTML =
-			"Use the links below to find additional information and resources:";
-	});
-});
-
-/*
------------------------------------------------
-Modal Section Methods
------------------------------------------------
-*/
-const modalVideoView = document.querySelector("#modalVideoView");
-const modalCloseBtn = document.querySelector("#modalClose");
-
-modalCloseBtn.addEventListener("click", () => {
-	modalVideoView.classList.toggle("hidden");
-});
-
-/*
------------------------------------------------
-Video Section Assets
 -----------------------------------------------
 */
 
@@ -212,6 +161,168 @@ const videoData = [
 	},
 ];
 
+/*
+-----------------------------------------------
+RESOURCE DATA
+	- Template: {
+		category: Label used to classify a group of resources
+		resources: A list of resources assigned to a specific category [
+			{
+				text: visual text of the resource link,
+				src: Link to the given resource,
+			}
+		]
+	}
+-----------------------------------------------
+*/
+
+const resourceData = [
+	{
+		category: "Category A",
+		resources: [
+			{
+				text: "Resource A1",
+				src: "#",
+			},
+			{
+				text: "Resource A2",
+				src: "#",
+			},
+			{
+				text: "Resource A3",
+				src: "#",
+			},
+		],
+	},
+	{
+		category: "Category B",
+		resources: [
+			{
+				text: "Resource B1",
+				src: "#",
+			},
+			{
+				text: "Resource B2",
+				src: "#",
+			},
+		],
+	},
+	{
+		category: "Category C",
+		resources: [
+			{
+				text: "Resource C1",
+				src: "#",
+			},
+			{
+				text: "Resource C2",
+				src: "#",
+			},
+			{
+				text: "Resource C3",
+				src: "#",
+			},
+			{
+				text: "Resource C4",
+				src: "#",
+			},
+		],
+	},
+];
+
+/*
+///////////////////////////////////////////////////////////////////////////////////
+__          __     _____  _   _ _____ _   _  _____ 
+\ \        / /\   |  __ \| \ | |_   _| \ | |/ ____|
+ \ \  /\  / /  \  | |__) |  \| | | | |  \| | |  __ 
+	\ \/  \/ / /\ \ |  _  /| . ` | | | | . ` | | |_ |
+	 \  /\  / ____ \| | \ \| |\  |_| |_| |\  | |__| |
+		\/  \/_/    \_\_|  \_\_| \_|_____|_| \_|\_____|
+///////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+EDITING BELOW THIS LINE MAY AFFECT CORE FUNCTIONALITY							 
+///////////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////
+*/
+
+/*
+-----------------------------------------------
+Mini-Map Expansion to map modal
+-----------------------------------------------
+*/
+const mapImg = document.querySelector("#mapImg");
+const modalMapView = document.querySelector("#modalMapView");
+
+mapImg.addEventListener("click", () => {
+	modalMapView.classList.toggle("hidden");
+	menuBtn.classList.toggle("open");
+});
+
+/*
+-----------------------------------------------
+Navbar functions - hamburger menu animation + updating view
+-----------------------------------------------
+*/
+
+const menuBtn = document.querySelector("#menuBtn");
+const menuNav = document.querySelector("#navMenu");
+
+const toggleMenuNav = () => {
+	// if mini-map is active, hide it
+	if (!modalMapView.classList.contains("hidden")) {
+		modalMapView.classList.add("hidden");
+		menuBtn.classList.toggle("open");
+	} else {
+		// Toggles hamburger menu appearance
+		menuBtn.classList.toggle("open");
+		menuNav.classList.toggle("open");
+	}
+};
+menuBtn.addEventListener("click", () => toggleMenuNav());
+
+const videoBtns = document.querySelectorAll(".videoNavBtn");
+const videoSect = document.querySelector("#videos");
+const resourcesBtns = document.querySelectorAll(".resourcesNavBtn");
+const resourcesSect = document.querySelector("#resources");
+
+const mainText = document.getElementById("featureMainText");
+const subText = document.getElementById("featureSubText");
+
+videoBtns.forEach((element) => {
+	// Adds click function to mobile & desktop version "Videos" button
+	element.addEventListener("click", () => {
+		videoSect.classList.remove("hidden");
+		resourcesSect.classList.add("hidden");
+		mainText.innerHTML = "Be Smart. Be Safe.";
+		subText.innerHTML =
+			"Watch free videos about safe administration, proper disposal, wound treatment, and more:";
+	});
+});
+
+resourcesBtns.forEach((element) => {
+	// Adds click function to mobile & desktop version "Resources" button
+	element.addEventListener("click", () => {
+		videoSect.classList.add("hidden");
+		resourcesSect.classList.remove("hidden");
+		mainText.innerHTML =
+			'Know the Facts.<span id="divider"></span>Protect Yourself.';
+		subText.innerHTML =
+			"Use the links below to find additional information and resources:";
+	});
+});
+
+/*
+-----------------------------------------------
+Video Modal - determines displayed info and video based on selected video
+-----------------------------------------------
+*/
+const modalVideoView = document.querySelector("#modalVideoView");
+const modalCloseBtn = document.querySelector("#modalClose");
+
+modalCloseBtn.addEventListener("click", () => {
+	modalVideoView.classList.toggle("hidden");
+});
+
 const populateVideoModal = (title, time, link, description) => {
 	let modalTitle = document.querySelector("#modalTitle");
 	let modalTime = document.querySelector("#modalTime");
@@ -225,6 +336,12 @@ const populateVideoModal = (title, time, link, description) => {
 
 	modalVideoView.classList.remove("hidden");
 };
+
+/*
+-----------------------------------------------
+Video List - Displays video thumbnails grouped by category based on how defined in videoData
+-----------------------------------------------
+*/
 
 const buildThumbnail = (video) => {
 	const listItem = document.createElement("li");
@@ -298,3 +415,31 @@ prevVidSectBtn.addEventListener("click", () => {
 	}
 	updateVideoSection(currentVidSection);
 });
+
+/*
+-----------------------------------------------
+Resources List - Displays resource links grouped by category based on how defined in resourceData
+-----------------------------------------------
+*/
+const resourcesList = document.getElementById("resourcesList");
+
+for (let r of resourceData) {
+	const resourceCategory = document.createElement("li");
+	const categoryHeader = document.createElement("h3");
+	const resourcesSublist = document.createElement("ul");
+
+	categoryHeader.innerHTML = r.category;
+	resourcesSublist.className = "resourcesSublist";
+	// build the sublist
+	for (let i of r.resources) {
+		const resourceItem = document.createElement("li");
+
+		// resourceItem.innerHTML = `<a>${i.text}</a>`;
+		resourceItem.innerHTML = `<a href="${i.src}">${i.text}</a>`;
+
+		resourcesSublist.append(resourceItem);
+	}
+	resourceCategory.append(categoryHeader);
+	resourceCategory.append(resourcesSublist);
+	resourcesList.append(resourceCategory);
+}
