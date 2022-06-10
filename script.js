@@ -275,7 +275,6 @@ const addVideoBtnFunctions = () => {
 
 	const resourcesSect = document.querySelector("#resources");
 
-	console.log(videoBtns);
 	videoBtns.forEach((element) => {
 		// Adds click function to mobile & desktop version "Videos" button
 		element.addEventListener("click", () => {
