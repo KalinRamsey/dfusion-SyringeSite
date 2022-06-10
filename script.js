@@ -247,23 +247,9 @@ EDITING BELOW THIS LINE MAY AFFECT CORE FUNCTIONALITY
 
 /*
 -----------------------------------------------
-Mini-Map Expansion to map modal
------------------------------------------------
-*/
-const mapImg = document.querySelector("#mapImg");
-const modalMapView = document.querySelector("#modalMapView");
-
-mapImg.addEventListener("click", () => {
-	modalMapView.classList.toggle("hidden");
-	menuBtn.classList.toggle("open");
-});
-
-/*
------------------------------------------------
 Navbar functions - hamburger menu animation + updating view
 -----------------------------------------------
 */
-
 const menuBtn = document.querySelector("#menuBtn");
 const menuNav = document.querySelector("#navMenu");
 
@@ -280,35 +266,100 @@ const toggleMenuNav = () => {
 };
 menuBtn.addEventListener("click", () => toggleMenuNav());
 
-const videoBtns = document.querySelectorAll(".videoNavBtn");
-const videoSect = document.querySelector("#videos");
-const resourcesBtns = document.querySelectorAll(".resourcesNavBtn");
-const resourcesSect = document.querySelector("#resources");
-
 const mainText = document.getElementById("featureMainText");
 const subText = document.getElementById("featureSubText");
 
-videoBtns.forEach((element) => {
-	// Adds click function to mobile & desktop version "Videos" button
-	element.addEventListener("click", () => {
-		videoSect.classList.remove("hidden");
-		resourcesSect.classList.add("hidden");
-		mainText.innerHTML = "Be Smart. Be Safe.";
-		subText.innerHTML =
-			"Watch free videos about safe administration, proper disposal, wound treatment, and more:";
-	});
-});
+const addVideoBtnFunctions = () => {
+	const videoBtns = document.querySelectorAll(".videoNavBtn");
+	const videoSect = document.querySelector("#videos");
 
-resourcesBtns.forEach((element) => {
-	// Adds click function to mobile & desktop version "Resources" button
-	element.addEventListener("click", () => {
-		videoSect.classList.add("hidden");
-		resourcesSect.classList.remove("hidden");
-		mainText.innerHTML =
-			'Know the Facts.<span id="divider"></span>Protect Yourself.';
-		subText.innerHTML =
-			"Use the links below to find additional information and resources:";
+	const resourcesSect = document.querySelector("#resources");
+
+	console.log(videoBtns);
+	videoBtns.forEach((element) => {
+		// Adds click function to mobile & desktop version "Videos" button
+		element.addEventListener("click", () => {
+			videoSect.classList.remove("hidden");
+			resourcesSect.classList.add("hidden");
+			mainText.innerHTML = "Be Smart. Be Safe.";
+			subText.innerHTML =
+				"Watch free videos about safe administration, proper disposal, wound treatment, and more:";
+		});
 	});
+};
+
+const addResourcesBtnFunctions = () => {
+	const resourcesBtns = document.querySelectorAll(".resourcesNavBtn");
+	const resourcesSect = document.querySelector("#resources");
+
+	const videoSect = document.querySelector("#videos");
+
+	resourcesBtns.forEach((element) => {
+		// Adds click function to mobile & desktop version "Resources" button
+		element.addEventListener("click", () => {
+			videoSect.classList.add("hidden");
+			resourcesSect.classList.remove("hidden");
+			mainText.innerHTML =
+				'Know the Facts.<span id="divider"></span>Protect Yourself.';
+			subText.innerHTML =
+				"Use the links below to find additional information and resources:";
+		});
+	});
+};
+
+addVideoBtnFunctions();
+addResourcesBtnFunctions();
+
+/*
+-----------------------------------------------
+Mini-Map Expansion to map modal
+-----------------------------------------------
+*/
+const mapImg = document.querySelector("#mapImg");
+const modalMapView = document.querySelector("#modalMapView");
+
+const updateNavMenu = () => {
+	const navMenuExpanded = document.querySelector("#navMenuExpanded");
+	navMenuExpanded.innerHTML = "";
+	modalMapView.classList.toggle("hidden");
+
+	if (modalMapView.classList.contains("hidden")) {
+		// toggle hamburger menu
+		menuBtn.classList.remove("open");
+		// update expanded nav menu
+		const resourceBtn = document.createElement("li");
+		resourceBtn.classList.add("resourcesNavBtn");
+		resourceBtn.classList.add("wide");
+
+		const videoBtn = document.createElement("li");
+		videoBtn.classList.add("videoNavBtn");
+		videoBtn.classList.add("wide");
+
+		resourceBtn.innerHTML = '<a href="#resources">RESOURCES</a>';
+		videoBtn.innerHTML = '<a href="#videos">VIDEOS</a>';
+
+		navMenuExpanded.append(videoBtn);
+		navMenuExpanded.append(resourceBtn);
+		addVideoBtnFunctions();
+		addResourcesBtnFunctions();
+	} else {
+		// toggle hamburger menu
+		menuBtn.classList.add("open");
+		// update expanded nav menu
+		const closeBtn = document.createElement("li");
+		closeBtn.classList.add("resourcesNavBtn");
+		closeBtn.classList.add("wide");
+
+		closeBtn.innerHTML = '<a href="#">CLOSE</a>';
+		closeBtn.addEventListener("click", () => {
+			updateNavMenu();
+		});
+		navMenuExpanded.append(closeBtn);
+	}
+};
+
+mapImg.addEventListener("click", () => {
+	updateNavMenu();
 });
 
 /*
