@@ -56,6 +56,10 @@ h4 {
 	font-weight: 600;
 }
 
+h5 {
+	color: var(--dark);
+}
+
 li {
 	list-style: none;
 	padding: 0;
@@ -278,11 +282,17 @@ main {
 #modalClose:hover {
 	cursor: pointer;
 }
+#modalVideoFrame {
+	width: 100%;
+	min-height: 350px;
+	position: relative;
+}
 #modalVideo {
-	padding: 10px;
+	position: absolute;
+	height: calc(100% - 10px);
 	width: calc(100% - 20px);
-	max-width: 350px;
-	height: 200px;
+	left: 10px;
+	border: none;
 }
 #modalInfo {
 	padding: 10px;
@@ -300,14 +310,36 @@ main {
 /* ____________________________________ */
 #headerImage {
 	padding-top: 69px;
+	padding-bottom: 30px;
 	display: block;
 	width: 100%;
-	height: 250px;
+	height: 550px;
+	position: relative;
+}
+#mapCTA {
+	z-index: 1;
+	position: absolute;
+	width: 200px;
+	padding: 20px;
+	border-radius: 5px;
+	background: white;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	top: calc(50% + 69px - 250px);
+	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+	left: 50%;
+	transform: translate(-50%, calc(-50% - 69px + 250px / 2));
+}
+#mapIcon {
+	width: 50px;
+	margin-bottom: 20px;
 }
 #mapImg {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
+	filter: blur(3px) brightness(75%);
 }
 #mapImg:hover {
 	cursor: pointer;
@@ -327,6 +359,7 @@ main {
 
 #mapCallToAction {
 	margin: 20px auto;
+	display: none;
 }
 
 .infoText {
@@ -339,6 +372,9 @@ main {
 /* ____________________________________ */
 /* VECTOR SHAPE + HEADER */
 /* ____________________________________ */
+#featureSection {
+	margin-top: -270px;
+}
 #featureHeader {
 	padding: 0;
 	position: relative;
@@ -352,10 +388,14 @@ main {
 	bottom: 0;
 	z-index: 9;
 }
+/* #featureSubText {
+	color: white;
+} */
 #svgWave1,
 #svgWave2 {
 	position: absolute;
 	left: 0;
+	bottom: 0px;
 	width: 100%;
 }
 
@@ -389,10 +429,11 @@ main {
 #videoNav {
 	background: var(--primary);
 	width: 100%;
-	height: 45px;
+	min-height: 45px;
+	padding: 5px 0;
 	display: flex;
 	align-items: center;
-	justify-content: space-between;
+	justify-content: center;
 }
 
 /* ____________________________________ */
@@ -454,9 +495,9 @@ main {
 	cursor: pointer;
 }
 .videoThumbnail {
-	border: 2px solid var(--dark);
+	/* border: 2px solid var(--primary); */
 	box-sizing: border-box;
-	background: black;
+	background: none;
 	width: 100%;
 	max-width: 420px;
 	height: 250px;
@@ -464,20 +505,32 @@ main {
 	border-radius: 5px;
 	margin-bottom: 10px;
 }
+
+.videoThumnail,
+img {
+	border-radius: 5px;
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
 .videoTitle,
 .videoTitleFull {
+	z-index: 2;
 	color: white;
 	position: absolute;
-	bottom: 20px;
-	padding: 10px;
+	bottom: 0;
+	width: 100%;
+	padding: 10px 0;
+	border-radius: 0 0 5px 5px;
 }
 .videoTitle {
-	background-image: linear-gradient(
+	background: var(--primary);
+	/* background-image: linear-gradient(
 		to right,
-		var(--dark),
-		var(--dark),
-		var(--dark_transparent)
-	);
+		var(--primary),
+		var(--primary),
+		var(--primary_transparent)
+	); */
 }
 .videoTitleFull {
 	background: var(--dark);
@@ -492,17 +545,32 @@ main {
 	display: block;
 }
 
-#resourcesList {
+/* #resourcesList {
+	padding: 0 20px;
+} */
+
+.resourcesSubheader {
+	background: var(--secondary);
+	color: var(--light);
+	padding: 10px 20px;
+}
+
+.resourcesSublist {
 	padding: 0 20px;
 }
 
 .resourcesSublist li {
-	margin: 10px auto;
+	margin: 30px auto;
 }
+
 .resourcesSublist a {
-	text-decoration: underline;
+	/* text-decoration: underline; */
 	font-size: 22px;
 	color: var(--dark);
+}
+.resourcesSublist a:hover {
+	color: var(--primary);
+	text-decoration: underline;
 }
 
 /* ____________________________________ */
@@ -550,8 +618,11 @@ main {
 
 	#modalContent {
 		display: flex;
+		justify-content: end;
 	}
 	#modalInfo {
+		max-width: 200px;
+		max-height: 100%;
 		text-align: right;
 	}
 
@@ -607,17 +678,23 @@ main {
 		margin: 20px;
 		padding-bottom: 10px;
 		max-height: calc(100% - 50px);
+		width: calc(100% - 40px);
 	}
+	/* #modalVideoFrame {
+		height: calc(100vh - 300px);
+	} */
 	#modalVideo {
 		max-width: none;
-		height: calc(100vh - 300px);
+
+		border: none;
 	}
 	#modalContent {
 		flex-direction: column;
 	}
 	#modalInfo {
 		text-align: center;
-		max-height: 50px;
+		/* max-height: 50px; */
+		max-width: 100%;
 	}
 
 	#headerImage {
@@ -635,9 +712,17 @@ main {
 	}
 
 	#featureSection {
+		margin-top: 0;
 		padding-bottom: 0;
 	}
 
+	#mapCallToAction {
+		display: block;
+	}
+
+	#featureSubText {
+		color: var(--dark);
+	}
 	#infoSection {
 		flex: 1;
 		overflow-y: scroll;
@@ -649,6 +734,9 @@ main {
 		padding: 0 20px;
 		display: flex;
 		flex-direction: column;
+	}
+	.videoThumbnail {
+		height: 200px;
 	}
 
 	.resourcesSublist a {

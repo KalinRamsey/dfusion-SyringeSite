@@ -3,6 +3,15 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="description" content="Free Syringe Disposal Site Resource" />
+		<meta
+			name="author"
+			content="Website Developer: Kalin Ramsey, Web Application Developer: Tyler Overby, Powered By: dfusion, Inc"
+		/>
+		<meta
+			name="keywords"
+			content="Syringe, Health, CDC, Illegal, Legal, Harm, Reduction, Disposal, Injection, Resources, Videos, Map, Locations, Moral, Ethical, Objections, Principles, Questions, Training, Information, Gauges, Sizes, Slang, Terms, Nicknames, Overdose, Prevention, Narcan, Pharmacy, Pharmacist, Consultation, Best, Practice, Guidelines, Prevent, HIV, HPC, Hepatitis, Safe, Drug, Paraphernalia, Restrictions, Legality, "
+		/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/x-icon" href="./favicon.png" />
 		<link rel="stylesheet" href="styles.css" />
@@ -37,9 +46,13 @@
 
 			<div id="content">
 				<header id="headerImage">
+					<div id="mapCTA">
+						<img id="mapIcon" src="./Assets/MapIcon.jpg" alt="Map Icon" />
+						<h5>Tap here for resource map</h5>
+					</div>
 					<img
 						id="mapImg"
-						src="https://picsum.photos/800/800"
+						src="./Assets/MapImg.jpg"
 						alt="Placeholder map thumbnail"
 					/>
 				</header>
@@ -86,10 +99,9 @@
 								</svg>
 							</div>
 							<div id="modalContent">
-								<video id="modalVideo" controls>
-									<source id="modalVideoSrc" src="" type="video/mp4" />
-									Your browser does not support the video tag.
-								</video>
+								<div id="modalVideoFrame">
+									<iframe id="modalVideo" src=""> </iframe>
+								</div>
 								<div id="modalInfo">
 									<p id="modalDesc"></p>
 								</div>
@@ -134,11 +146,11 @@
 							>
 								<path
 									d="M428 51.9784C248.5 109.978 191 -42.5216 0 11.9784V250.978H428V51.9784Z"
-									fill="url(#paint0_linear_164_39)"
+									fill="url(#paint0_linear_79_198)"
 								/>
 								<defs>
 									<linearGradient
-										id="paint0_linear_164_39"
+										id="paint0_linear_79_198"
 										x1="213.75"
 										y1="-3.05055e-05"
 										x2="214"
@@ -146,10 +158,11 @@
 										gradientUnits="userSpaceOnUse"
 									>
 										<stop stop-color="#83CFC6" />
-										<stop offset="1" stop-color="#83CFC6" stop-opacity="0" />
+										<stop offset="1" stop-color="white" />
 									</linearGradient>
 								</defs>
 							</svg>
+
 							<svg
 								id="svgWave2"
 								width="100%"
