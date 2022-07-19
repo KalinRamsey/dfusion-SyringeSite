@@ -539,10 +539,14 @@ img {
 
 .resourcesSublist {
 	padding: 0 20px;
+	text-align: left;
 }
 
 .resourcesSublist li {
-	margin: 30px auto;
+	list-style-type: circle;
+	margin: 30px 0px 30px 20px;
+	text-align: left;
+	padding: 0 10px;
 }
 
 .resourcesSublist a {
@@ -621,6 +625,15 @@ img {
 
 	.videoThumbnail {
 		margin: 0;
+	}
+
+	.resourcesSublist {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+	}
+	.resourcesSublist li {
+		width: calc(50% - 40px);
 	}
 }
 
@@ -713,6 +726,10 @@ img {
 		height: 200px;
 	}
 
+	.resourcesSublist li {
+		margin: 20px;
+		width: 100%;
+	}
 	.resourcesSublist a {
 		font-size: 18px;
 	}
