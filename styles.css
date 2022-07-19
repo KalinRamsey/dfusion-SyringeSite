@@ -69,7 +69,6 @@ main {
 	background: var(--light);
 	position: relative;
 	min-height: 100vh;
-	/* padding-bottom: 50px; */
 }
 
 /* ____________________________________ */
@@ -83,7 +82,6 @@ main {
 #navbar {
 	background: var(--primary);
 	top: 0;
-	/* width: 100%; */
 	display: flex;
 	padding: 20px;
 	justify-content: space-between;
@@ -180,14 +178,12 @@ main {
 #navMenu.open {
 	display: flex;
 	background: var(--dark);
-	/* float: right; */
 	padding: 20px 0;
 	flex-direction: column;
 	justify-content: space-around;
 	border-radius: 0 0 0 5px;
 	-webkit-animation: slide 0.5s forwards;
 	animation: slide 0.5s forwards;
-	/* transition: all 0.5s ease-in-out; */
 }
 
 @-webkit-keyframes slide {
@@ -254,7 +250,6 @@ main {
 	background: white;
 	border-radius: 5px;
 	max-height: calc(100% - 50px);
-	/* overflow-y: scroll; */
 }
 #modalHeader {
 	display: flex;
@@ -388,9 +383,7 @@ main {
 	bottom: 0;
 	z-index: 9;
 }
-/* #featureSubText {
-	color: white;
-} */
+
 #svgWave1,
 #svgWave2 {
 	position: absolute;
@@ -495,7 +488,6 @@ main {
 	cursor: pointer;
 }
 .videoThumbnail {
-	/* border: 2px solid var(--primary); */
 	box-sizing: border-box;
 	background: none;
 	width: 100%;
@@ -525,12 +517,6 @@ img {
 }
 .videoTitle {
 	background: var(--primary);
-	/* background-image: linear-gradient(
-		to right,
-		var(--primary),
-		var(--primary),
-		var(--primary_transparent)
-	); */
 }
 .videoTitleFull {
 	background: var(--dark);
@@ -544,10 +530,6 @@ img {
 #divider {
 	display: block;
 }
-
-/* #resourcesList {
-	padding: 0 20px;
-} */
 
 .resourcesSubheader {
 	background: var(--secondary);
@@ -564,7 +546,6 @@ img {
 }
 
 .resourcesSublist a {
-	/* text-decoration: underline; */
 	font-size: 22px;
 	color: var(--dark);
 }
@@ -680,12 +661,7 @@ img {
 		max-height: calc(100% - 50px);
 		width: calc(100% - 40px);
 	}
-	/* #modalVideoFrame {
-		height: calc(100vh - 300px);
-	} */
 	#modalVideo {
-		max-width: none;
-
 		border: none;
 	}
 	#modalContent {
@@ -693,7 +669,6 @@ img {
 	}
 	#modalInfo {
 		text-align: center;
-		/* max-height: 50px; */
 		max-width: 100%;
 	}
 
@@ -728,7 +703,6 @@ img {
 		overflow-y: scroll;
 		padding: none;
 		min-width: 20px;
-		/* width: 500px; */
 	}
 	.videoSet {
 		padding: 0 20px;

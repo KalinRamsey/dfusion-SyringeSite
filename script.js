@@ -37,7 +37,7 @@ const videoData = [
 		videos: [
 			{
 				title: "Prevent HIV and Hepatitis",
-				thumbnailSrc: "./Assets/01_PreventHIV.jpeg",
+				thumbnailSrc: "./Assets/01_PreventHIV.jpg",
 				alt: "Alt text",
 				videoLink: "https://youtube.com/embed/wuMAhktyJQ8",
 				time: "3:02",
@@ -46,7 +46,7 @@ const videoData = [
 			},
 			{
 				title: "What's in the Kit?",
-				thumbnailSrc: "./Assets/02_WhatsInTheKit.jpeg",
+				thumbnailSrc: "./Assets/02_WhatsInTheKit.jpg",
 				alt: "Alt text",
 				videoLink: "https://youtube.com/embed/7OpKXdAjzkM",
 				time: "4:46",
@@ -55,7 +55,7 @@ const videoData = [
 			},
 			{
 				title: "Needle Knowledge",
-				thumbnailSrc: "./Assets/03_NeedleKnowledge.jpeg",
+				thumbnailSrc: "./Assets/03_NeedleKnowledge.jpg",
 				alt: "Alt text",
 				videoLink: "https://youtube.com/embed/4JyvDprmpvQ",
 				time: "2:49",
@@ -64,7 +64,7 @@ const videoData = [
 			},
 			{
 				title: "Select the Best Injection Site",
-				thumbnailSrc: "./Assets/04_BestInjectionSite.jpeg",
+				thumbnailSrc: "./Assets/04_BestInjectionSite.jpg",
 				alt: "Alt text",
 				videoLink: "https://youtube.com/embed/TFyMnDCoNE8",
 				time: "3:37",
@@ -73,7 +73,7 @@ const videoData = [
 			},
 			{
 				title: "Safer Injection Strategies",
-				thumbnailSrc: "./Assets/05_SafeInjectionStrategies.jpeg",
+				thumbnailSrc: "./Assets/05_SafeInjectionStrategies.jpg",
 				alt: "Alt text",
 				videoLink: "https://youtube.com/embed/tnoELQ3LZkE",
 				time: "2:17",
@@ -82,7 +82,7 @@ const videoData = [
 			},
 			{
 				title: "Overdose Prevention",
-				thumbnailSrc: "./Assets/06_OverdosePrevention.jpeg",
+				thumbnailSrc: "./Assets/06_OverdosePrevention.jpg",
 				alt: "Alt text",
 				videoLink: "https://youtube.com/embed/MVsyWtE7Ak8",
 				time: "3:03",
@@ -91,7 +91,7 @@ const videoData = [
 			},
 			{
 				title: "Recognize Overdose",
-				thumbnailSrc: "./Assets/07_RecognizeOverdose.jpeg",
+				thumbnailSrc: "./Assets/07_RecognizeOverdose.jpg",
 				alt: "Alt text",
 				videoLink: "https://youtube.com/embed/CrwpdstNje8",
 				time: "2:19",
@@ -100,7 +100,7 @@ const videoData = [
 			},
 			{
 				title: "Treat Overdose",
-				thumbnailSrc: "./Assets/08_TreatOverdose.jpeg",
+				thumbnailSrc: "./Assets/08_TreatOverdose.jpg",
 				alt: "Alt text",
 				videoLink: "https://youtube.com/embed/sUhDXcHUbXM",
 				time: "4:22",
@@ -108,7 +108,7 @@ const videoData = [
 			},
 			{
 				title: "Safe Disposal",
-				thumbnailSrc: "./Assets/09_SafeDisposal.jpeg",
+				thumbnailSrc: "./Assets/09_SafeDisposal.jpg",
 				alt: "Alt text",
 				videoLink: "https://youtube.com/embed/IGyb546TomE",
 				time: "2:34",
@@ -117,7 +117,7 @@ const videoData = [
 			},
 			{
 				title: "Wound Care",
-				thumbnailSrc: "./Assets/10_WoundCare.jpeg",
+				thumbnailSrc: "./Assets/10_WoundCare.jpg",
 				alt: "Alt text",
 				videoLink: "https://youtube.com/embed/zvWnKRoSimA",
 				time: "3:02",
@@ -126,7 +126,7 @@ const videoData = [
 			},
 			{
 				title: "Abscess & Vein Care",
-				thumbnailSrc: "./Assets/11_Abscess&VeinCare.jpeg",
+				thumbnailSrc: "./Assets/11_Abscess&VeinCare.jpg",
 				alt: "Alt text",
 				videoLink: "https://youtube.com/embed/Uz60EdqrRhE",
 				time: "3:49",
@@ -135,7 +135,7 @@ const videoData = [
 			},
 			{
 				title: "Medical Complications",
-				thumbnailSrc: "./Assets/12_MedicalComplications.jpeg",
+				thumbnailSrc: "./Assets/12_MedicalComplications.jpg",
 				alt: "Alt text",
 				videoLink: "https://youtube.com/embed/Xe5_Kk1_lm8",
 				time: "2:15",
