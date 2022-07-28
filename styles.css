@@ -81,17 +81,43 @@ main {
 }
 #navbar {
 	background: var(--primary);
+	border-bottom: 5px solid var(--primary);
 	top: 0;
 	display: flex;
-	padding: 20px;
+	padding-right: 20px;
 	justify-content: space-between;
+	align-items: center;
 	z-index: 99;
+	height: 70px;
 }
 
+#logoFrame {
+	background: var(--light);
+	align-self: flex-start;
+	padding: 10px 20px;
+	position: relative;
+	height: 55px;
+	width: 50%;
+}
+#logoFrame:after {
+	content: " ";
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	left: 0;
+	z-index: 0;
+	background: var(--light);
+	transform-origin: bottom left;
+	-ms-transform: skew(-30deg, 0deg);
+	-webkit-transform: skew(-30deg, 0deg);
+	transform: skew(-30deg, 0deg);
+}
 #logo {
-	color: var(--light);
-	font-size: 24px;
-	font-weight: 600;
+	z-index: 5;
+	object-fit: contain;
+	object-position: left center;
 }
 
 /* ____________________________________ */
@@ -501,6 +527,7 @@ main {
 .videoThumnail,
 img {
 	border-radius: 5px;
+	object-fit: cover;
 	position: relative;
 	width: 100%;
 	height: 100%;
@@ -580,6 +607,9 @@ img {
 
 /* iPads (landscape) ----------- */
 @media only screen and (min-width: 768px) {
+	#logoFrame {
+		width: 25%;
+	}
 	#menuBtn {
 		display: none;
 	}
